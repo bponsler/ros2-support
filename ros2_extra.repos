@@ -1,4 +1,12 @@
 repositories:
+  cmake_modules:
+    type: git
+    url: https://github.com/bponsler/cmake_modules
+    version: ros2-devel
+  rospack:
+    type: git
+    url: https://github.com/bponsler/rospack
+    version: ros2-devel
   diagnostics:
     type: git
     url: https://github.com/bponsler/diagnostics
