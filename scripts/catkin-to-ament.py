@@ -32,12 +32,14 @@ CMAKELISTS = "CMakeLists.txt"
 UNKNOWN_ROS_PACKAGES = [
     "nodelet",
     "dynamic_reconfigure",
+    "pluginlib",
 ]
 
 # List of ROS packages that have been renamed in ROS 2
 RENAMED_ROS_PACKAGES = {
     "roscpp": "rclcpp",
     "message_generation": "builtin_interfaces",
+    "tf": "tf2",
 }
 
 
@@ -288,6 +290,9 @@ class CmakeListsPorter:
                 # Remove the link directories, which will be added later
                 removeIndices.append(index)
             elif item.name == "catkin_destinations":
+                # Remove this command as it no longer exists
+                removeIndices.append(index)
+            elif item.name == "catkin_metapackage":
                 # Remove this command as it no longer exists
                 removeIndices.append(index)
             elif item.name == "add_dependencies":
