@@ -22,6 +22,7 @@ Below are various scripts provided by this repository:
 Below is a list of ROS 2 packages that were created to faciliate the porting of other packages (see next section):
 
 - [ros2_time](https://github.com/bponsler/ros2_time)
+- [ros2_console](https://github.com/bponsler/ros2_console)
 - [urg_node_msgs](https://github.com/bponsler/urg_node_msgs)
 
 ## Packages ported to ROS 2

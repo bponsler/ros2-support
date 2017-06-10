@@ -15,6 +15,10 @@ repositories:
     type: git
     url: https://github.com/bponsler/ros2_time
     version: master
+  ros2_console:
+    type: git
+    url: https://github.com/bponsler/ros2_console
+    version: master
   urg_c:
     type: git
     url: https://github.com/bponsler/urg_c
