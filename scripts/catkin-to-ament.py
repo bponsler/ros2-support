@@ -295,6 +295,9 @@ class CmakeListsPorter:
             elif item.name == "catkin_metapackage":
                 # Remove this command as it no longer exists
                 removeIndices.append(index)
+            elif item.name == "catkin_python_setup":
+                # Remove this command as it no longer exists
+                removeIndices.append(index)
             elif item.name == "add_dependencies":
                 # The catkin exported targets variable no longer exists,
                 # so remove this
