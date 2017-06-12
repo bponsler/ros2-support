@@ -7,9 +7,33 @@ repositories:
     type: git
     url: https://github.com/bponsler/rospack
     version: ros2-devel
+  rospkg:
+    type: git
+    url: https://github.com/bponsler/rospkg
+    version: ros2-devel
   pluginlib:
     type: git
     url: https://github.com/bponsler/pluginlib
+    version: ros2-devel
+  python_qt_binding:
+    type: git
+    url: https://github.com/bponsler/python_qt_binding
+    version: ros2-devel
+  qt_gui_core:
+    type: git
+    url: https://github.com/bponsler/qt_gui_core
+    version: ros2-devel
+  rqt:
+    type: git
+    url: https://github.com/bponsler/rqt
+    version: ros2-devel
+  rqt_graph:
+    type: git
+    url: https://github.com/bponsler/rqt_graph
+    version: ros2-devel
+  rqt_dep:
+    type: git
+    url: https://github.com/bponsler/rqt_dep
     version: ros2-devel
   diagnostics:
     type: git
