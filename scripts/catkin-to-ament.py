@@ -333,6 +333,19 @@ class CmakeListsPorter:
             elif item.name == "generate_messages":
                 # Remove this command as it has been replaced
                 removeIndices.append(index)
+            elif item.name == "if":
+                # Replace if(CATKIN_ENABLE_TESTING) with if(BUILD_TESTING)
+                if len(args) == 1 and args[0] == "CATKIN_ENABLE_TESTING":
+                    item.body[0] = cmkp.Arg("BUILD_TESTING")
+            elif item.name == "catkin_add_gtest":
+                # Replace catkin_add_gtest with ament_add_gtest
+                cmake[index] = cmkp.Command("ament_add_gtest", item.body)
+            elif item.name == "catkin_add_nosetests":
+                # Replace catkin_add_nosetests with ament_add_nose_test, add
+                # an additional arg which is the name of the test. Add a unique
+                # name that can be changed as desired later
+                body = [cmkp.Arg("${PROJECT_NAME}_nose_test_%s" % index)] + item.body
+                cmake[index] = cmkp.Command("ament_add_nose_test", body)
 
         # Should never happen, but just in case...
         if projectDeclIndex == -1:
@@ -471,6 +484,9 @@ class CmakeListsPorter:
             exportLibs = cmkp.Command(
                 "ament_export_libraries",
                 [cmkp.Arg(lib) for lib in packageLibs])
+
+            # Include all dependency libraries
+            exportLibs.append(cmkp.Arg("${LIBS}"))
             cmake.append(exportLibs)
 
         # Add the final call to initialize the ament package

@@ -8,14 +8,23 @@ Below are various tutorials provided by this repository:
 - [Migrating a catkin package to ament](tutorials/port-catkin-to-ament.md)
 - [Accessing ROS parameters](tutorials/accessing-ros-parameters.md)
 - [Writing a ROS 2 launch file](tutorials/ros2-launch.md)
+- [Guide to ROS 2 unit testing](tutorials/unit-testing.md)
+- [How to create a mixed C++ and python ament package](creating-a-mixed-cpp-and-python-package.md)
 
 
 ## Scripts
 Below are various scripts provided by this repository:
 
+- [Install base packages](scripts/install-base-packages.sh)
 - [Install ROS 2](scripts/install-ros2-source.sh)
 - [Port a single catkin package to ament](scripts/catkin-to-ament.py)
 - [Create an ament overlay package from extra repositories](scripts/create-ament-overlay.sh)
+
+
+## Base package dependencies
+Below is a list of base packages that are necessary:
+
+- [rosdep](https://github.com/bponsler/rosdep/tree/ros2-devel)
 
 
 ## New ROS 2 packages
@@ -24,6 +33,7 @@ Below is a list of ROS 2 packages that were created to faciliate the porting of 
 - [ros2_time](https://github.com/bponsler/ros2_time)
 - [ros2_console](https://github.com/bponsler/ros2_console)
 - [urg_node_msgs](https://github.com/bponsler/urg_node_msgs)
+
 
 ## Packages ported to ROS 2
 Below is a list of packages that have been ported to ROS 2:
