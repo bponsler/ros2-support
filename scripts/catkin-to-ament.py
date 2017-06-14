@@ -32,6 +32,7 @@ CMAKELISTS = "CMakeLists.txt"
 UNKNOWN_ROS_PACKAGES = [
     "nodelet",
     "dynamic_reconfigure",
+    "roslib",
 ]
 
 # List of ROS packages that have been renamed in ROS 2

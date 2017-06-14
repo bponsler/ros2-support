@@ -91,3 +91,7 @@ repositories:
     type: git
     url: https://github.com/bponsler/navigation_msgs
     version: ros2-devel
+  resource_retriever:
+    type: git
+    url: https://github.com/bponsler/resource_retriever
+    version: ros2-devel
