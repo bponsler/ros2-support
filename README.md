@@ -57,4 +57,4 @@ Below is a list of packages that have been ported to ROS 2:
 - [vision_opencv](https://github.com/bponsler/vision_opencv/tree/ros2-devel)
 - [interactive_markers](https://github.com/bponsler/interactive_markers/tree/ros2-devel)
 - [laser_geometry](https://github.com/bponsler/laser_geometry/tree/ros2-devel)
-
+- [navigation_msgs](https://github.com/bponsler/navigation_msgs/tree/ros2-devel)
