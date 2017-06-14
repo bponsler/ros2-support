@@ -67,3 +67,19 @@ repositories:
     type: git
     url: https://github.com/bponsler/urg_node_msgs
     version: master
+  angles:
+    type: git
+    url: https://github.com/bponsler/angles
+    version: ros2-devel
+  vision_opencv:
+    type: git
+    url: https://github.com/bponsler/vision-opencv
+    version: ros2-devel
+  sensor_msgs_util:
+    type: git
+    url: https://github.com/bponsler/sensor_msgs_util
+    version: ros2-devel
+  interactive_markers:
+    type: git
+    url: https://github.com/bponsler/interactive_markers
+    version: ros2-devel

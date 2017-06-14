@@ -32,14 +32,15 @@ CMAKELISTS = "CMakeLists.txt"
 UNKNOWN_ROS_PACKAGES = [
     "nodelet",
     "dynamic_reconfigure",
-    "pluginlib",
 ]
 
 # List of ROS packages that have been renamed in ROS 2
 RENAMED_ROS_PACKAGES = {
     "roscpp": "rclcpp",
+    "rospy": "rclpy",
     "message_generation": "builtin_interfaces",
     "tf": "tf2",
+    "rosconsole": "ros2_console",  # Until ROS 2 replacement exists
 }
 
 
@@ -486,7 +487,7 @@ class CmakeListsPorter:
                 [cmkp.Arg(lib) for lib in packageLibs])
 
             # Include all dependency libraries
-            exportLibs.append(cmkp.Arg("${LIBS}"))
+            exportLibs.body.append(cmkp.Arg("${LIBS}"))
             cmake.append(exportLibs)
 
         # Add the final call to initialize the ament package

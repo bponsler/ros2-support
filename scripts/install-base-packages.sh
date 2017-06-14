@@ -17,6 +17,7 @@ rm base_packages.repos  # Clean up the file now that we're done with it
 sudo apt-get install -y python3-pyqt5.qtsvg
 
 sudo pip install pydot
+sudo pip install numpy
 
 # This fixes an issue with how graphviz gets installed
 sudo pip install pygraphviz --install-option="--include-path=/usr/include/graphviz" --install-option="--library-path=/usr/lib/graphviz/"
