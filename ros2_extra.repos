@@ -95,3 +95,7 @@ repositories:
     type: git
     url: https://github.com/bponsler/resource_retriever
     version: ros2-devel
+  message_filters:
+    type: git
+    url: https://github.com/bponsler/message_filters
+    version: master
