@@ -30,19 +30,25 @@ CMAKELISTS = "CMakeLists.txt"
 
 # List of ROS packages that do not currently exist in ROS 2
 UNKNOWN_ROS_PACKAGES = [
-    "nodelet",
     "dynamic_reconfigure",
     "roslib",
 ]
 
 # List of ROS packages that have been renamed in ROS 2
 RENAMED_ROS_PACKAGES = {
+    "tf": "tf2",
     "roscpp": "rclcpp",
     "rospy": "rclpy",
-    "message_generation": "builtin_interfaces",
-    "tf": "tf2",
+    "nodelet": "rclcpp",  # nodelets have become components in ROS 2
+    "message_generation": "rosidl_default_generators",
+    "message_runtime": "rosidl_default_runtime",
     "rosconsole": "ros2_console",  # Until ROS 2 replacement exists
 }
+
+# List of packages that do not need to be found by CMake
+NO_CMAKE_FIND_PACKAGES = [
+    "rosidl_default_runtime",
+]
 
 
 def executeSedCmd(pattern, filename, dryrun=False):
@@ -74,6 +80,9 @@ class PackageXmlPorter:
         # List of package root element indices to remove
         removeElements = []
 
+        # TODO: need to handle the different semantics of tags between format 1 and 2
+        #       see: http://www.ros.org/reps/rep-0140.html
+        
         generatesMessages = False
         foundExport = False
         foundBuildTool = False
@@ -95,7 +104,7 @@ class PackageXmlPorter:
             elif child.tag == "buildtool_depend":
                 # Update the package to use ament instead of catkin
                 if child.text == "catkin":
-                    child.text = "ament"
+                    child.text = "ament_cmake"
                     foundBuildTool = True
             elif child.tag == "export":
                 foundExport = True
@@ -128,9 +137,10 @@ class PackageXmlPorter:
         # If this package generates messages, then certain dependencies
         # need to be added to the package
         if generatesMessages:
-            buildToolElement = etree.Element("depend")
-            buildToolElement.text = "builtin_interfaces"
-            buildToolElement.tail = "\n  "  # Spacing to next element
+            # TODO: only add this when Duration or Time are used within the messages/services
+            #buildToolElement = etree.Element("depend")
+            #buildToolElement.text = "builtin_interfaces"
+            #buildToolElement.tail = "\n  "  # Spacing to next element
 
             buildToolElement = etree.Element("buildtool_depend")
             buildToolElement.text = "rosidl_default_generators"
@@ -151,7 +161,7 @@ class PackageXmlPorter:
         # always be specified, but just in case)
         if not foundBuildTool:
             buildToolElement = etree.Element("buildtool_depend")
-            buildToolElement.text = "ament"
+            buildToolElement.text = "ament_cmake"
             buildToolElement.tail = "\n"  # Spacing to next element
 
             # Add spacing before the open of the build tool depend element
@@ -253,7 +263,7 @@ class CmakeListsPorter:
                     for arg in args:
                         if "-std=c++11" in arg:
                             hasCpp11 = True
-                            break
+                            break                   
             elif item.name == "find_package":
                 if len(args) > 0 and "catkin" == args[0]:
                     removeIndices.append(index)
@@ -363,11 +373,10 @@ class CmakeListsPorter:
         if not hasCpp11:
             comment = cmkp.Comment("# Add support for C++11")
 
-            openIf = cmkp.Command("if", [cmkp.Arg("NOT"), cmkp.Arg("WIN32")])
+            openIf = cmkp.Command("if", [cmkp.Arg("NOT"), cmkp.Arg("CMAKE_CXX_STANDARD")])
 
             addDef = cmkp.Command(
-                "add_definitions",
-                [cmkp.Arg(contents="-std=c++11")])
+                "set", [cmkp.Arg("CMAKE_CXX_STANDARD"), cmkp.Arg("11")])
 
             closeIf = cmkp.Command("endif", [])
 
@@ -389,8 +398,17 @@ class CmakeListsPorter:
         # Must find the ament_cmake package
         catkinDepends.insert(0, "ament_cmake")
 
+        # Remove duplicate entries
+        catkinDepends = list(set(catkinDepends))
+
+        # Remove packages that don't need to be found by CMake
+        for pkg in NO_CMAKE_FIND_PACKAGES:
+            if pkg in catkinDepends:
+                catkinDepends.remove(pkg)
+        
         # Add calls to find all other dependency packages
         for pkg in catkinDepends:
+           
             findPkg = cls.__findPackage(pkg)
             projectDeclIndex += 1
             cmake.insert(projectDeclIndex, findPkg)
