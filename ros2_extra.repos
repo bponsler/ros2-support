@@ -99,3 +99,7 @@ repositories:
     type: git
     url: https://github.com/bponsler/message_filters
     version: master
+  xacro:
+    type: git
+    url: https://github.com/bponsler/xacro
+    version: ros2-devel

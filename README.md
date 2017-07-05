@@ -60,3 +60,4 @@ Below is a list of packages that have been ported to ROS 2:
 - [laser_geometry](https://github.com/bponsler/laser_geometry/tree/ros2-devel)
 - [navigation_msgs](https://github.com/bponsler/navigation_msgs/tree/ros2-devel)
 - [resource_retriever](https://github.com/bponsler/resource_retriever/tree/ros2-devel)
+- [xacro](https://github.com/bponsler/xacro/tree/ros2-devel)
