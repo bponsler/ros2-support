@@ -111,3 +111,11 @@ repositories:
     type: git
     url: https://github.com/bponsler/ros2_launch_util
     version: master
+  openslam_gmapping:
+    type: git
+    url: https://github.com/bponsler/openslam_gmapping
+    version: ros2-devel
+  slam_gmapping:
+    type: git
+    url: https://github.com/bponsler/slam_gmapping
+    version: ros2-devel

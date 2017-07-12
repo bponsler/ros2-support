@@ -62,4 +62,6 @@ Below is a list of packages that have been ported to ROS 2:
 - [navigation_msgs](https://github.com/bponsler/navigation_msgs/tree/ros2-devel)
 - [resource_retriever](https://github.com/bponsler/resource_retriever/tree/ros2-devel)
 - [xacro](https://github.com/bponsler/xacro/tree/ros2-devel)
-- [teleop_twist_keyboard](https://github.com/ros2/teleop_twist_keyboard)
+- [teleop_twist_keyboard](https://github.com/ros2/teleop_twist_keyboard) (ported by OSRF)
+- [openslam_gmapping](https://github.com/bponsler/openslam_gmapping/tree/ros2-devel)
+- [slam_gmapping](https://github.com/bponsler/slam_gmapping/tree/ros2-devel)
