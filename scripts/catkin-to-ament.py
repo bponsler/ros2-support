@@ -125,8 +125,11 @@ class PackageXmlPorter:
                     buildTypeElement.tail = "\n  "  # Spacing for export close
 
                     # Add spacing for open of the build type element
-                    lastExport = child.getchildren()[-1]
-                    lastExport.tail = "\n    "  # Spacing to open of build type
+                    if len(child.getchildren()) > 0:
+                        lastExport = child.getchildren()[-1]
+                        lastExport.tail = "\n    "  # Spacing to open of build type
+                    else:
+                        child.tail = "\n    "  # Spacing to build type element
 
                     child.append(buildTypeElement)
 
@@ -251,7 +254,11 @@ class CmakeListsPorter:
             # Grab names of all arguments to this command
             args = [b.contents for b in item.body]
 
-            if item.name == "project":
+            if item.name == "cmake_minimum_required":
+                # Make sure to use at least cmake 3.5
+                if len(args) == 2 and args[0] == "VERSION":
+                    item.body[1] = cmkp.Arg("3.5")
+            elif item.name == "project":
                 projectDeclIndex = index
             elif item.name == "add_definitions":
                 # Handle C++11 support added through definitions

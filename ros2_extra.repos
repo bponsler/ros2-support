@@ -78,7 +78,7 @@ repositories:
   sensor_msgs_util:
     type: git
     url: https://github.com/bponsler/sensor_msgs_util
-    version: ros2-devel
+    version: master
   interactive_markers:
     type: git
     url: https://github.com/bponsler/interactive_markers

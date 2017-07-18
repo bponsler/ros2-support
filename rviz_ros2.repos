@@ -1,0 +1,45 @@
+repositories:
+  cmake_modules:
+    type: git
+    url: https://github.com/bponsler/cmake_modules
+    version: ros2-devel
+  rospack:
+    type: git
+    url: https://github.com/bponsler/rospack
+    version: ros2-devel
+  pluginlib:
+    type: git
+    url: https://github.com/bponsler/pluginlib
+    version: ros2-devel
+  python_qt_binding:
+    type: git
+    url: https://github.com/bponsler/python_qt_binding
+    version: ros2-devel
+  ros2_console:
+    type: git
+    url: https://github.com/bponsler/ros2_console
+    version: master
+  sensor_msgs_util:
+    type: git
+    url: https://github.com/bponsler/sensor_msgs_util
+    version: master
+  interactive_markers:
+    type: git
+    url: https://github.com/bponsler/interactive_markers
+    version: ros2-devel
+  laser_geometry:
+    type: git
+    url: https://github.com/bponsler/laser_geometry
+    version: ros2-devel
+  resource_retriever:
+    type: git
+    url: https://github.com/bponsler/resource_retriever
+    version: ros2-devel
+  message_filters:
+    type: git
+    url: https://github.com/bponsler/message_filters
+    version: master
+  rviz:
+    type: git
+    url: https://github.com/bponsler/rviz
+    version: ros2-devel

@@ -5,6 +5,7 @@ Collection of information/scripts pertaining to ROS 2 development
 ## Tutorials/Guides
 Below are various tutorials provided by this repository:
 
+- [Using rviz in ROS 2](tutorials/using-rviz-in-ros2.md)
 - [Migrating a catkin package to ament](tutorials/port-catkin-to-ament.md)
 - [Accessing ROS parameters](tutorials/accessing-ros-parameters.md)
 - [Writing a ROS 2 launch file](tutorials/ros2-launch.md)
@@ -15,6 +16,7 @@ Below are various tutorials provided by this repository:
 ## Scripts
 Below are various scripts provided by this repository:
 
+- [Checkout and compile rviz](scripts/checkout-rviz.sh)
 - [Install base packages](scripts/install-base-packages.sh)
 - [Install ROS 2](scripts/install-ros2-source.sh)
 - [Port a single catkin package to ament](scripts/catkin-to-ament.py)
@@ -39,7 +41,7 @@ Below is a list of ROS 2 packages that were created to faciliate the porting of 
 
 
 ## Packages ported to ROS 2
-Below is a list of packages that have been ported to ROS 2:
+Below is a list of packages that have been, or are actively being, ported to ROS 2:
 
 - [cmake_modules](https://github.com/bponsler/cmake_modules/tree/ros2-devel)
 - [rospack](https://github.com/bponsler/rospack/tree/ros2-devel)
@@ -65,3 +67,4 @@ Below is a list of packages that have been ported to ROS 2:
 - [teleop_twist_keyboard](https://github.com/ros2/teleop_twist_keyboard) (ported by OSRF)
 - [openslam_gmapping](https://github.com/bponsler/openslam_gmapping/tree/ros2-devel)
 - [slam_gmapping](https://github.com/bponsler/slam_gmapping/tree/ros2-devel)
+- [rviz](https://github.com/bponsler/rviz/tree/ros2-devel)
