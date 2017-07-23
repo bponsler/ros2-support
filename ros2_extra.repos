@@ -119,3 +119,7 @@ repositories:
     type: git
     url: https://github.com/bponsler/slam_gmapping
     version: ros2-devel
+  robot_state_publisher:
+    type: git
+    url: https://github.com/bponsler/robot_state_publisher
+    version: publish-robot-model

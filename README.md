@@ -69,3 +69,4 @@ Below is a list of packages that have been, or are actively being, ported to ROS
 - [rviz](https://github.com/bponsler/rviz/tree/ros2-devel)
 - [message_filters](https://github.com/bponsler/ros_comm/tree/ros2-devel/utilities/message_filters)
 - [xmlrpcpp](https://github.com/bponsler/ros_comm/tree/ros2-devel/utilities/xmlrpcpp)
+- [robot_state_publisher](https://github.com/bponsler/robot_state_publisher/tree/publish-robot-model)

@@ -39,6 +39,10 @@ repositories:
     type: git
     url: https://github.com/bponsler/ros_comm
     version: ros2-devel
+  robot_state_publisher:
+    type: git
+    url: https://github.com/bponsler/robot_state_publisher
+    version: publish-robot-model
   rviz:
     type: git
     url: https://github.com/bponsler/rviz

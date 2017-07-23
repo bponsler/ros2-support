@@ -13,6 +13,15 @@ The following is a list of plugins that are working to some degree:
 - Tf
 - Laser Scan
 - Map
+- Robot model
+- Path
+- Point Stamped
+- Polygon
+- Range
+- Relative Humidity
+- Temperature
+- Wrench Stamped
+- Odometry
 
 ## Check out and compile the source packages
 
