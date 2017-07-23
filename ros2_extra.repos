@@ -95,10 +95,10 @@ repositories:
     type: git
     url: https://github.com/bponsler/resource_retriever
     version: ros2-devel
-  message_filters:
+  ros_comm:
     type: git
-    url: https://github.com/bponsler/message_filters
-    version: master
+    url: https://github.com/bponsler/ros_comm
+    version: ros2-devel
   xacro:
     type: git
     url: https://github.com/bponsler/xacro

@@ -36,7 +36,6 @@ Below is a list of ROS 2 packages that were created to faciliate the porting of 
 - [ros2_console](https://github.com/bponsler/ros2_console)
 - [urg_node_msgs](https://github.com/bponsler/urg_node_msgs)
 - [sensor_msgs_util](https://github.com/bponsler/sensor_msgs_util)
-- [message_filters](https://github.com/bponsler/message_filters)
 - [ros2_launch_util](https://github.com/bponsler/ros2_launch_util)
 
 
@@ -65,6 +64,8 @@ Below is a list of packages that have been, or are actively being, ported to ROS
 - [resource_retriever](https://github.com/bponsler/resource_retriever/tree/ros2-devel)
 - [xacro](https://github.com/bponsler/xacro/tree/ros2-devel)
 - [teleop_twist_keyboard](https://github.com/ros2/teleop_twist_keyboard) (ported by OSRF)
-- [openslam_gmapping](https://github.com/bponsler/openslam_gmapping/tree/ros2-devel)
-- [slam_gmapping](https://github.com/bponsler/slam_gmapping/tree/ros2-devel)
+- [openslam_gmapping](https://github.com/allenh1/openslam_gmapping/tree/ros2-devel)
+- [slam_gmapping](https://github.com/allenh1/slam_gmapping/tree/ros2-devel)
 - [rviz](https://github.com/bponsler/rviz/tree/ros2-devel)
+- [message_filters](https://github.com/bponsler/ros_comm/tree/ros2-devel/utilities/message_filters)
+- [xmlrpcpp](https://github.com/bponsler/ros_comm/tree/ros2-devel/utilities/xmlrpcpp)
