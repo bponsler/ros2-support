@@ -47,3 +47,7 @@ repositories:
     type: git
     url: https://github.com/bponsler/rviz
     version: ros2-devel
+  ros2_daemon_client_cpp:
+    type: git
+    url: https://github.com/bponsler/ros2_daemon_client_cpp
+    version: master

@@ -37,6 +37,7 @@ Below is a list of ROS 2 packages that were created to faciliate the porting of 
 - [urg_node_msgs](https://github.com/bponsler/urg_node_msgs)
 - [sensor_msgs_util](https://github.com/bponsler/sensor_msgs_util)
 - [ros2_launch_util](https://github.com/bponsler/ros2_launch_util)
+- [ros2_daemon_client_cpp](https://github.com/bponsler/daemon_client_cpp)
 
 
 ## Packages ported to ROS 2

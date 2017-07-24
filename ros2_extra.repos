@@ -123,3 +123,7 @@ repositories:
     type: git
     url: https://github.com/bponsler/robot_state_publisher
     version: publish-robot-model
+  ros2_daemon_client_cpp:
+    type: git
+    url: https://github.com/bponsler/ros2_daemon_client_cpp
+    version: master
