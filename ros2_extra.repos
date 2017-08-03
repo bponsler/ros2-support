@@ -114,11 +114,11 @@ repositories:
   openslam_gmapping:
     type: git
     url: https://github.com/bponsler/openslam_gmapping
-    version: ros2-devel
+    version: ros2_port
   slam_gmapping:
     type: git
     url: https://github.com/bponsler/slam_gmapping
-    version: ros2-devel
+    version: ros2_port
   robot_state_publisher:
     type: git
     url: https://github.com/bponsler/robot_state_publisher
