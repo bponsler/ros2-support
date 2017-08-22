@@ -17,9 +17,9 @@ try:
 except ImportError:
     import traceback
     traceback.print_exc()
-    print("ERROR: You must install the cmake_parse python module!")
+    print("ERROR: You must install the parse_cmake python module!")
     print("")
-    print("    sudo pip install cmake_parse")
+    print("    sudo pip install parse_cmake")
     exit(1)
 
 
