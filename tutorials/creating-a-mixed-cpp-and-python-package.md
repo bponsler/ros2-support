@@ -41,8 +41,8 @@ First we have the package.xml file:
       <buildtool_depend>ament</buildtool_depend>
       <buildtool_depend>ament_cmake_python</buildtool_depend>
 
-      <depend>rclcpp</exec_depend>
-      <depend>rclpy</exec_depend>
+      <exec_depend>rclcpp</exec_depend>
+      <exec_depend>rclpy</exec_depend>
 
       <export>
         <build_type>ament_cmake</build_type>
