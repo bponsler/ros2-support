@@ -82,11 +82,11 @@ class PackageXmlPorter:
 
         # TODO: need to handle the different semantics of tags between format 1 and 2
         #       see: http://www.ros.org/reps/rep-0140.html
-        
+
         generatesMessages = False
         foundExport = False
         foundBuildTool = False
-        for child in packageRoot.getchildren():
+        for child in packageRoot:
             # Handle specific elements
             if child.tag == "build_depend":
                 # Message generation no longer exists
@@ -111,7 +111,7 @@ class PackageXmlPorter:
 
                 # Found an export, check children for build type
                 foundBuildType = False
-                for export in child.getchildren():
+                for export in child:
                     # The build type needs to be specified for ament packages
                     if export.tag == "build_type":
                         export.text = "ament_cmake"
@@ -125,8 +125,8 @@ class PackageXmlPorter:
                     buildTypeElement.tail = "\n  "  # Spacing for export close
 
                     # Add spacing for open of the build type element
-                    if len(child.getchildren()) > 0:
-                        lastExport = child.getchildren()[-1]
+                    if len(list(child)) > 0:
+                        lastExport = list(child)[-1]
                         lastExport.tail = "\n    "  # Spacing to open of build type
                     else:
                         child.tail = "\n    "  # Spacing to build type element
@@ -154,7 +154,7 @@ class PackageXmlPorter:
             execDependElement.tail = "\n  "  # Spacing to next element
 
             # Add spacing before the open of the build tool depend element
-            lastChild = packageRoot.getchildren()[-1]
+            lastChild = list(packageRoot)[-1]
             lastChild.tail = "\n\n  "  # Spacing for open build tool depend
 
             packageRoot.append(buildToolElement)
@@ -168,7 +168,7 @@ class PackageXmlPorter:
             buildToolElement.tail = "\n"  # Spacing to next element
 
             # Add spacing before the open of the build tool depend element
-            lastChild = packageRoot.getchildren()[-1]
+            lastChild = list(packageRoot)[-1]
             lastChild.tail = "\n\n  "  # Spacing for open build tool depend
 
             packageRoot.append(buildToolElement)
@@ -188,7 +188,7 @@ class PackageXmlPorter:
             exportElement.append(buildTypeElement)
 
             # Add spacing before the open of the export element
-            lastChild = packageRoot.getchildren()[-1]
+            lastChild = list(packageRoot)[-1]
             lastChild.tail = "\n\n  "  # Spacing for open export
 
             packageRoot.append(exportElement)
@@ -211,6 +211,7 @@ class PackageXmlPorter:
             os.remove(tempFilename)
 
             # Print the content
+            print("Printing content for file %s on this dry run\n"%os.path.join(os.getcwd(), PACKAGE_XML))
             print(content)
 
         return True  # Success
@@ -270,7 +271,7 @@ class CmakeListsPorter:
                     for arg in args:
                         if "-std=c++11" in arg:
                             hasCpp11 = True
-                            break                   
+                            break
             elif item.name == "find_package":
                 if len(args) > 0 and "catkin" == args[0]:
                     removeIndices.append(index)
@@ -412,10 +413,10 @@ class CmakeListsPorter:
         for pkg in NO_CMAKE_FIND_PACKAGES:
             if pkg in catkinDepends:
                 catkinDepends.remove(pkg)
-        
+
         # Add calls to find all other dependency packages
         for pkg in catkinDepends:
-           
+
             findPkg = cls.__findPackage(pkg)
             projectDeclIndex += 1
             cmake.insert(projectDeclIndex, findPkg)
@@ -560,6 +561,7 @@ class CmakeListsPorter:
             fid.write("%s\n" % cmakeData.strip())
             fid.close()
         else:
+            print("\nPrinting content for file %s on this dry run\n"%os.path.join(os.getcwd(), CMAKELISTS))
             print(cmakeData)
 
         return True  # Success
@@ -600,7 +602,7 @@ if __name__ == '__main__':
         exit(1)
 
     if args.dryrun:
-        print("Performing a dryrun...")
+        print("Performing a dryrun...\n")
 
     # Port the package XML
     if not PackageXmlPorter.port(args.dryrun):
